@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace examination_3
 {
@@ -6,7 +7,12 @@ namespace examination_3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Game game = new Game(5);
+            game.NewGame();
+
+      
         }
+
+       
     }
 }
