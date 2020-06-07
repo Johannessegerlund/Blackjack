@@ -77,17 +77,28 @@ public void GameResult(Player player, Dealer dealer) {
 
     Console.WriteLine(dealer.HandValue());
 
-    if (dealer.HandValue() > 21) {
+    if (dealer.HandValue() > 21) 
+    {
       Console.WriteLine( "Dealer got busted");
-    } else if (dealer.HandValue() == 21) {
+    } 
+    else if (dealer.HandValue() == 21) 
+    {
       Console.WriteLine ("Dealer wins");
-    } else if (player.HandValue() > dealer.HandValue()) {
+    } 
+    else if (player.HandValue() > dealer.HandValue()) 
+    {
       Console.WriteLine("player wins");
-    } else if (player.HandValue() == dealer.HandValue()) {
+    } 
+    else if (player.HandValue() == dealer.HandValue()) 
+    {
       Console.WriteLine ("Dealer wins");
-    } else if (dealer.HandValue() <= 21 && dealer.NumberOfCards() == 5) {
+    } 
+    else if (dealer.HandValue() <= 21 && dealer.NumberOfCards() == 5) 
+    {
       Console.WriteLine ("Dealer wins");
-    } else if (dealer.HandValue() > player.HandValue()) {
+    } 
+    else if (dealer.HandValue() > player.HandValue()) 
+    {
       Console.WriteLine("Dealer wins");
     }
     

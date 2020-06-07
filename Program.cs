@@ -7,12 +7,9 @@ namespace examination_3
     {
         static void Main(string[] args)
         {
-            Game game = new Game(5);
+            Game game = new Game(50);
             game.NewGame();
-
       
-        }
-
-       
+        }  
     }
 }

@@ -1,6 +1,6 @@
 namespace examination_3
 {
-      public enum suit
+    public enum suit
       {
         Spade,
         Dimond,
