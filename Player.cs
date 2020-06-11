@@ -6,6 +6,7 @@ namespace examination_3
 
     public class Player
     {
+      public List<Cards> hand = new List<Cards>();
       private int _limit;
      
       private string _name;
@@ -16,7 +17,6 @@ namespace examination_3
       
       }
 
-    public List<Cards> hand = new List<Cards>();
 
     public int HandValue() 
       {
@@ -59,14 +59,14 @@ namespace examination_3
       do 
       {
       GiveCard(deck);
-      deck.removeUsedCards();
+      deck.RemoveUsedCards();
       } 
       while(!StopLimit());
       }
 
     public void NameOfPlayer() 
       {
-      Console.WriteLine(_name + ", " + _limit);
+      Console.WriteLine(_name + ", " + "limit" + " " + _limit);
       }
 	}
 

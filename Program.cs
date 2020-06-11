@@ -7,9 +7,17 @@ namespace examination_3
     {
         static void Main(string[] args)
         {
-            Game game = new Game(50);
-            game.NewGame();
-      
-        }  
+
+        Console.WriteLine("choose how many players should be playing");
+        int numOfPlayers = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine(" ");
+        int counter = 0;
+        while (counter < numOfPlayers )
+            counter ++;
+        Game game = new Game(counter);
+        game.NewGame();
+        }
     }
-}
+      
+}  
+  

@@ -22,15 +22,15 @@ namespace examination_3
     Random random = new Random();
     _limit = random.Next(5, 20); 
     return _limit;
-  }
+    }
   public void NewGame () {
     for (var i = 0; i < _player; i++) {
     var Player = new Player(Stop(), "Player " + i);
     var dealer = new Dealer(Stop(), "Dealer");
     
      GameResult(Player, dealer);
-  }
-}
+    }
+    }
 
 
 public void GameResult(Player player, Dealer dealer) {
@@ -41,11 +41,9 @@ public void GameResult(Player player, Dealer dealer) {
     player.GetCard(deck);
     } 
     
-
-
-    Console.WriteLine(string.Join("\n", player.hand));
-    Console.WriteLine(player.HandValue());
-    deck.throwCards(player);
+    Console.WriteLine(string.Join(", ", player.hand));
+    Console.WriteLine("Total Value" + " " + player.HandValue() );
+    deck.ThrowCards(player);
 
     if (player.HandValue() > 21) 
     {
@@ -71,11 +69,11 @@ public void GameResult(Player player, Dealer dealer) {
     {
     dealer.GetCard(deck);
     } 
-    Console.WriteLine(string.Join("\n", dealer.hand));
 
-    deck.throwCards(dealer);
+    Console.WriteLine(string.Join(", ", dealer.hand));
+    Console.WriteLine("Total Value" + " " + dealer.HandValue());
+    deck.ThrowCards(dealer);
 
-    Console.WriteLine(dealer.HandValue());
 
     if (dealer.HandValue() > 21) 
     {

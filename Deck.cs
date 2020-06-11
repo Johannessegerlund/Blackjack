@@ -4,62 +4,66 @@ using System.Collections.Generic;
 namespace examination_3
 {
 
-
   public class DeckofCards
   {
 
-  public List<Cards> oldCards = new List<Cards>();
-	public List<Cards> cards = new List<Cards>();
+  private List<Cards> _oldCards = new List<Cards>(); 
+	private List<Cards> _cards = new List<Cards>();
+
+  static Random _random = new Random();
+
 	public List <Cards> FillDeck()
 	  {
     for (int i = 0; i < Enum.GetNames(typeof(suit)).Length; i++) 
     {
     for (int x = 2; x < Enum.GetNames(typeof(CardValue)).Length + 2; x++) 
-		cards.Add(new Cards((suit)i, (CardValue)x));
+		_cards.Add(new Cards((suit)i, (CardValue)x));
     } 
-    return cards;
+    return _cards;
     }
 
-    static Random _random = new Random();
+
   public Cards Shuffle()
     {
-    GetCard();
-    int n = cards.Count;
+    GetOldCard();
+    int n = _cards.Count;
     for (int i = 0; i < (n - 1); i++)
     {
     int r = i + _random.Next(n - i);
-    Cards t = cards[r];
-    cards[r] = cards[i];
-    cards[i] = t;
+    Cards t = _cards[r];
+    _cards[r] = _cards[i];
+    _cards[i] = t;
     }   
-    return cards[0];
+    return _cards[0];
     }
 
-public void GetCard () {
-    if (cards.Count <= 1) 
+
+  public void GetOldCard () {
+    if (_cards.Count <= 1) 
     {
-      foreach(Cards card in oldCards)  
+      foreach(Cards card in _oldCards)  
     {
-      cards.Add(card);
-    };
-      oldCards.Clear();
+      _cards.Add(card);
+    }
+      _oldCards.Clear();
     }
     
   }
 
-  public void removeUsedCards () 
+  public void RemoveUsedCards () 
   {
-    cards.RemoveAt(0);
+    _cards.RemoveAt(0);
 
   }
-  public void throwCards(Player player) {
+  public void ThrowCards(Player player) {
 
     foreach(Cards card in player.hand)  
     {
-      oldCards.Add(card);
+      _oldCards.Add(card);
     };
-    Console.WriteLine(oldCards.Count + "skräp");
-    Console.WriteLine(cards.Count + "deck");
+    // Console.WriteLine("");
+    // Console.WriteLine(_oldCards.Count + " " + "UsedCards");
+    // Console.WriteLine(_cards.Count + " " +  "InDeck");
     }
   }
 }
